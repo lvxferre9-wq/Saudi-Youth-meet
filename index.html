@@ -86,6 +86,20 @@
             border-bottom: none;
         }
 
+        /* Logo Animation */
+        .logo-float {
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Logo Glow Effect */
+        .logo-glow {
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+        }
+
         @media print {
             body { -webkit-print-color-adjust: exact; background-color: white; font-size: 12pt; }
             .no-print { display: none; }
@@ -112,8 +126,22 @@
 <body class="antialiased text-lg"> <!-- Base text size increased to lg -->
 
     <!-- Navigation / Actions -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 py-4 px-8 flex justify-between items-center no-print border-b border-gray-100">
-        <div class="text-sm md:text-base font-bold tracking-widest text-gray-600 uppercase">PPMI Riyadh <span class="text-gold mx-1">x</span> LOGIC <span class="text-gold mx-1">x</span> MaHa</div>
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 py-3 px-8 flex justify-between items-center no-print border-b border-gray-100">
+        <div class="flex items-center gap-5">
+            <!-- Organizers Logos in Navbar -->
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20PPMI.png" 
+                 alt="Logo PPMI Riyadh" 
+                 class="h-12 w-12 object-contain rounded-full border border-black p-1">
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20Logic.png" 
+                 alt="Logo LOGIC Initiative" 
+                 class="h-12 w-12 object-contain rounded-full border border-black p-1">
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/logo%20Maha.png" 
+                 alt="Logo Mandeh Haramain" 
+                 class="h-12 w-12 object-contain rounded-full border border-black p-1">
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20Embassy.png" 
+                 alt="Logo Indonesian Embassy" 
+                 class="h-12 w-12 object-contain rounded-full border border-black p-1">
+        </div>
     </nav>
 
     <!-- HERO SECTION (Reverted to Gradient Background) -->
@@ -122,17 +150,17 @@
         <!-- Decoration Line -->
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-saudiGreen via-gold to-indoRed z-30"></div>
         
-        <!-- Background Map Image (UPDATED: High Visibility) -->
+        <!-- Background Map Image (Saudi Map by Gemini) -->
         <div class="absolute inset-0 z-0 flex justify-center items-center">
             <!-- 
-                PERBAIKAN VISIBILITAS:
-                - mix-blend-overlay: Membuat peta menyatu dengan warna hijau (daratan jadi hijau terang).
-                - opacity-70: Menaikkan opacity agar TEGAS terlihat.
-                - brightness-150 & contrast-125: Membuat peta "pop-up" di atas background gelap.
-                - grayscale: Menjaga warna tetap monokromatik hijau.
+                BLENDING DENGAN BACKGROUND GRADIENT:
+                - mix-blend-soft-light: Blend halus dengan warna background hijau gelap.
+                - opacity-60: Transparansi agar tidak terlalu dominan.
+                - brightness-90: Sedikit redup agar menyatu dengan background gelap.
             -->
-            <img src="image_07007d.jpg" alt="Saudi Arabia Map Silhouette" 
-                 class="w-full h-full object-cover object-center grayscale mix-blend-overlay opacity-70 brightness-150 contrast-125 scale-110">
+            <img src="https://github.com/lvxferre9-wq/Saudi-Youth-meet/blob/main/Saudi%20Map%20by%20Gemini.png?raw=true" 
+                 alt="Saudi Arabia Map" 
+                 class="w-full h-full object-cover object-center mix-blend-soft-light opacity-60 brightness-90">
         </div>
 
         <!-- Decorative Blobs (Moved behind map or adjusted) -->
@@ -152,7 +180,7 @@
             </h1>
             
             <p class="text-xl md:text-3xl font-light italic mb-10 text-gray-100 max-w-5xl mx-auto font-serif leading-relaxed">
-                “Empowering Youth Diplomacy through Educational Service, Volunteer Activities, and Professional Management.”
+                "Empowering Youth Diplomacy through Educational Service, Volunteer Activities, and Professional Management."
             </p>
 
             <!-- Key Info Badges -->
@@ -240,7 +268,7 @@
                     <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center text-indoRed text-3xl mb-8 group-hover:bg-indoRed group-hover:text-white transition-colors">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h4 class="font-bold text-2xl mb-4 text-gray-900">Cultivate ‘Diplomat-Managers’</h4>
+                    <h4 class="font-bold text-2xl mb-4 text-gray-900">Cultivate 'Diplomat-Managers'</h4>
                     <p class="text-lg text-gray-600 leading-relaxed">Nurturing leaders who possess the cultural empathy of a diplomat and the operational precision of a manager—individuals equipped to build international bridges while executing vision with excellence.</p>
                 </div>
 
@@ -331,23 +359,43 @@
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200">
-                        <div class="text-indoRed text-4xl mb-4"><i class="fas fa-users"></i></div>
+                    <!-- PPMI Riyadh Card with Logo -->
+                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:shadow-lg transition-shadow">
+                        <div class="mb-4 flex justify-center">
+                            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20PPMI.png" 
+                                 alt="Logo PPMI Riyadh" 
+                                 class="h-20 w-20 object-contain rounded-full border border-black p-1">
+                        </div>
                         <div class="font-bold text-gray-900 text-lg">PPMI Riyadh</div>
                         <div class="text-sm text-gray-600 uppercase mt-2 font-semibold">Organizer</div>
                     </div>
-                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200">
-                        <div class="text-saudiGreen text-4xl mb-4"><i class="fas fa-project-diagram"></i></div>
+                    <!-- LOGIC Initiative Card with Logo -->
+                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:shadow-lg transition-shadow">
+                        <div class="mb-4 flex justify-center">
+                            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20Logic.png" 
+                                 alt="Logo LOGIC Initiative" 
+                                 class="h-20 w-20 object-contain rounded-full border border-black p-1">
+                        </div>
                         <div class="font-bold text-gray-900 text-lg">LOGIC Initiative</div>
                         <div class="text-sm text-gray-600 uppercase mt-2 font-semibold">Strategic Partner</div>
                     </div>
-                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200">
-                        <div class="text-gold text-4xl mb-4"><i class="fas fa-female"></i></div>
+                    <!-- Mandeh Haramain Card with Logo -->
+                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:shadow-lg transition-shadow">
+                        <div class="mb-4 flex justify-center">
+                            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/logo%20Maha.png" 
+                                 alt="Logo Mandeh Haramain" 
+                                 class="h-20 w-20 object-contain rounded-full border border-black p-1">
+                        </div>
                         <div class="font-bold text-gray-900 text-lg">Mandeh Haramain</div>
                         <div class="text-sm text-gray-600 uppercase mt-2 font-semibold">Initiator</div>
                     </div>
-                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200">
-                        <div class="text-gray-800 text-4xl mb-4"><i class="fas fa-landmark"></i></div>
+                    <!-- Indonesian Embassy Card with Logo -->
+                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:shadow-lg transition-shadow">
+                        <div class="mb-4 flex justify-center">
+                            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20Embassy.png" 
+                                 alt="Logo Indonesian Embassy" 
+                                 class="h-20 w-20 object-contain rounded-full border border-black p-1">
+                        </div>
                         <div class="font-bold text-gray-900 text-lg">Indonesian Embassy</div>
                         <div class="text-sm text-gray-600 uppercase mt-2 font-semibold">Host</div>
                     </div>
@@ -644,7 +692,7 @@
                         <strong>Shared Networking & Rapport:</strong> Establishing a strong personal and professional connection between Indonesian students (PPMI Riyadh) and Saudi youth (LOGIC Initiative) as the foundational step for long-term collaboration.
                     </li>
                     <li>
-                        <strong>Introduction to Professional Standards:</strong> Providing participants with a practical overview of how social passion can be enhanced through professional management, learning from LOGIC’s structured approach.
+                        <strong>Introduction to Professional Standards:</strong> Providing participants with a practical overview of how social passion can be enhanced through professional management, learning from LOGIC's structured approach.
                     </li>
                     <li>
                         <strong>Foundation for Future Action:</strong> Securing an initial agreement (Statement of Intent) to begin drafting a single, joint community initiative in Riyadh, marking the official start of the partnership between our two communities.
@@ -672,6 +720,21 @@
     </main>
 
     <footer class="bg-gray-900 text-gray-500 py-12 text-center text-sm no-print">
+        <!-- Organizers Logos in Footer -->
+        <div class="flex justify-center items-center gap-5 mb-4">
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20PPMI.png" 
+                 alt="Logo PPMI Riyadh" 
+                 class="h-10 w-auto object-contain opacity-70">
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20Logic.png" 
+                 alt="Logo LOGIC Initiative" 
+                 class="h-10 w-auto object-contain opacity-70">
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/logo%20Maha.png" 
+                 alt="Logo Mandeh Haramain" 
+                 class="h-10 w-auto object-contain opacity-70">
+            <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20Embassy.png" 
+                 alt="Logo Indonesian Embassy" 
+                 class="h-10 w-auto object-contain opacity-70">
+        </div>
         <p>&copy; 2026 Indonesian Students Association in Riyadh. All Rights Reserved.</p>
     </footer>
 
