@@ -116,25 +116,44 @@
         <div class="text-sm md:text-base font-bold tracking-widest text-gray-600 uppercase">PPMI Riyadh <span class="text-gold mx-1">x</span> LOGIC <span class="text-gold mx-1">x</span> MaHa</div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (Reverted to Gradient Background) -->
     <header class="min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-hero text-white relative overflow-hidden">
-        <!-- Decoration -->
-        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-saudiGreen via-gold to-indoRed"></div>
-        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-green-900 rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
-        <div class="absolute -top-20 -left-20 w-96 h-96 bg-red-900 rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
+        
+        <!-- Decoration Line -->
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-saudiGreen via-gold to-indoRed z-30"></div>
+        
+        <!-- Background Map Image (UPDATED: Corrected Source & Styling) -->
+        <div class="absolute inset-0 z-0 flex justify-center items-center">
+            <!-- 
+                PERBAIKAN:
+                - src="image_06939d.jpg": Menggunakan file gambar yang Anda unggah.
+                - mix-blend-overlay: Membuat gambar 'menyerap' warna hijau background.
+                - opacity-60: Tingkat transparansi yang pas agar terlihat jelas tapi tidak menutupi teks.
+                - brightness-150: Membuat peta lebih terang agar muncul di atas background gelap.
+                - grayscale: Menjaga konsistensi warna (hijau monokrom).
+            -->
+            <img src="file:///C:/Users/user/Downloads/Gemini_Generated_Image_t9qehht9qehht9qe.png" alt="Saudi Arabia Map Silhouette" 
+                 class="w-full h-full object-cover object-center grayscale mix-blend-overlay opacity-60 brightness-150 contrast-125 scale-110">
+        </div>
 
-        <div class="z-10 max-w-6xl animate-fade-in-up mt-16">
-            <div class="mb-8 inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/20">
+        <!-- Decorative Blobs (Moved behind map or adjusted) -->
+        <!-- Lower opacity for blobs so they don't wash out the map -->
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-green-900 rounded-full mix-blend-screen filter blur-3xl opacity-30 z-10 pointer-events-none"></div>
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-red-900 rounded-full mix-blend-screen filter blur-3xl opacity-30 z-10 pointer-events-none"></div>
+
+        <div class="z-20 max-w-6xl animate-fade-in-up mt-16 relative">
+            <div class="mb-8 inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/20 shadow-lg">
                 <span class="text-sm md:text-base tracking-[0.2em] uppercase text-gray-100 font-semibold">Official Project Proposal</span>
             </div>
             
-            <h1 class="text-5xl md:text-8xl font-bold mb-8 leading-tight">
-                Saudi–Indonesia <br> 
+            <!-- Updated Title Structure (Preserved) -->
+            <h1 class="text-4xl md:text-7xl font-bold mb-8 leading-tight drop-shadow-lg">
+                Beyond Borders: Saudi–Indonesia <br> 
                 <span class="gold-text">Youth Meeting 2026</span>
             </h1>
             
-            <p class="text-xl md:text-3xl font-light italic mb-10 text-gray-100 max-w-4xl mx-auto font-serif leading-relaxed">
-                “Empowering Youth Diplomacy through Educational Service and Professional Management.”
+            <p class="text-xl md:text-3xl font-light italic mb-10 text-gray-100 max-w-5xl mx-auto font-serif leading-relaxed">
+                “Empowering Youth Diplomacy through Educational Service, Volunteer Activities, and Professional Management.”
             </p>
 
             <!-- Key Info Badges -->
