@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -35,6 +34,14 @@
 
         .gold-text {
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Richer gold for use on light/white backgrounds */
+        .gold-text-dark {
+            background: linear-gradient(135deg, #8B6914 0%, #B8860B 25%, #D4AF37 50%, #B8860B 75%, #8B6914 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -127,6 +134,97 @@
         }
         .animate-fade-in-up {
             animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           PARTNERSHIP SECTION — ENHANCED STYLES
+           ════════════════════════════════════════════════════════════ */
+        .gold-bg {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 100%);
+        }
+
+        .tier-card {
+            transition: transform 0.45s cubic-bezier(0.23,1,0.32,1),
+                        box-shadow 0.45s cubic-bezier(0.23,1,0.32,1);
+            will-change: transform;
+        }
+        .tier-card:hover {
+            transform: translateY(-8px);
+        }
+
+        @keyframes shimmer {
+            0%   { background-position: -200% center; }
+            100% { background-position:  200% center; }
+        }
+        .shimmer-border {
+            position: relative;
+        }
+        .shimmer-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(90deg,
+                transparent 0%, #bf953f 20%, #fcf6ba 40%,
+                #fcf6ba 60%, #b38728 80%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 4s ease-in-out infinite;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.10); }
+            50%      { box-shadow: 0 0 40px rgba(212,175,55,0.25), 0 0 80px rgba(212,175,55,0.08); }
+        }
+
+        @keyframes crownBob {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25%      { transform: translateY(-3px) rotate(-3deg); }
+            75%      { transform: translateY(-3px) rotate(3deg); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.35s; }
+        .delay-4 { animation-delay: 0.5s; }
+        .delay-5 { animation-delay: 0.65s; }
+
+        .comparison-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #bf953f #1a1a1a;
+        }
+        .comparison-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        .comparison-table-wrap::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 3px;
+        }
+        .comparison-table-wrap::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #bf953f, #b38728);
+            border-radius: 3px;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background: rgba(255,255,255,0.02);
+        }
+        .comparison-table tbody tr:hover {
+            background: rgba(212,175,55,0.06);
+        }
+        .comparison-table th,
+        .comparison-table td {
+            white-space: nowrap;
         }
 
         /* ===== RESPONSIVE STYLES ===== */
@@ -315,16 +413,10 @@
             }
         }
 
-        /* Budget Table Mobile - Already handled above */
-
-        /* Expected Outputs Mobile */
-        @media (max-width: 768px) {
-            .md\\:grid-cols-2 {
-                grid-template-columns: 1fr !important;
-            }
-            .list-gold-check li {
-                padding-left: 1.5rem;
-                font-size: 0.9rem;
+        /* Partnership Tier Cards Mobile */
+        @media (max-width: 640px) {
+            .tier-card .p-6 {
+                padding: 1.25rem !important;
             }
         }
 
@@ -365,12 +457,11 @@
         }
     </script>
 </head>
-<body class="antialiased text-lg"> <!-- Base text size increased to lg -->
+<body class="antialiased text-lg">
 
     <!-- Navigation / Actions -->
     <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 py-3 px-8 flex justify-between items-center no-print border-b border-gray-100">
         <div class="flex items-center gap-5">
-            <!-- Organizers Logos in Navbar -->
             <img src="https://raw.githubusercontent.com/lvxferre9-wq/Saudi-Youth-meet/refs/heads/main/Logo%20PPMI.png" 
                  alt="Logo PPMI Riyadh" 
                  class="h-12 w-12 object-contain rounded-full shadow-md hover:shadow-lg transition-shadow bg-white p-1">
@@ -385,7 +476,7 @@
                  class="h-12 w-12 object-contain rounded-full shadow-md hover:shadow-lg transition-shadow bg-white p-1">
         </div>
     </nav>
-
+    
  <!-- HERO SECTION -->
     <header class="min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-hero text-white relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-saudiGreen via-gold to-indoRed z-30"></div>
